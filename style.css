@@ -8,9 +8,37 @@
 :root {    
   --primary-bg-color: #282829;
   --primary-color: #b8b6b6;
+  --btn-text-color: rgb(233, 142, 7);
+  --btn-color: rgb(233, 142, 7);
+  --btn-color-hover:black;
 }
 
 body {
     background-color: var(--primary-bg-color);
     color: var(--primary-color);
+    width: 80%;
+    padding-left: 40px;
+}
+
+.navigation {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.github {
+    text-decoration: none;
+    color: var(--btn-text-color);
+    border: 1px solid var(--btn-color);
+    padding: 10px 25px;
+    border-radius: 20px;
+    transition: transform 0.7s ease;
+}
+
+.github:hover {
+    background-color: var(--btn-color);
+    color: var(--btn-color-hover);
+    transform: scale(1.1);
 }
