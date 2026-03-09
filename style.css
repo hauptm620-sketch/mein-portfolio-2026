@@ -3,42 +3,90 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-:root {    
+:root {
   --primary-bg-color: #282829;
   --primary-color: #b8b6b6;
   --btn-text-color: rgb(233, 142, 7);
   --btn-color: rgb(233, 142, 7);
-  --btn-color-hover:black;
+  --btn-color-light: rgba(233, 143, 7, 0.11);
+  --btn-color-hover: black;
 }
 
 body {
-    background-color: var(--primary-bg-color);
-    color: var(--primary-color);
-    width: 80%;
-    padding-left: 40px;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-color);
+  max-width: 1200px; /*begrenzt die breite*/
+  margin: 0 auto; /*ganze seite wird zentriert*/
+  padding: 0 20px; /*abstand links/rechts ist gleichmäßig*/
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #1f1a1a;
+  background: linear-gradient(
+    179deg,
+    rgba(31, 26, 26, 0.57) 0%,
+    rgba(143, 120, 71, 0.45) 100%
+  );
 }
 
 .navigation {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+  box-shadow:
+    0px 0px 1px rgba(32, 29, 29, 0.02),
+    0px 2px 4px rgba(32, 29, 29, 0.03),
+    0px 4px 9px rgba(32, 29, 29, 0.05),
+    0px 6px 15px rgba(32, 29, 29, 0.06),
+    0px 10px 24px rgba(32, 29, 29, 0.08);
+  border-radius: 8px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
-.github {
-    text-decoration: none;
-    color: var(--btn-text-color);
-    border: 1px solid var(--btn-color);
-    padding: 10px 25px;
-    border-radius: 20px;
-    transition: transform 0.7s ease;
+.nav-btn {
+  text-decoration: none;
+  color: var(--btn-text-color);
+  border: 1px solid var(--btn-color);
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
 }
 
-.github:hover {
-    background-color: var(--btn-color);
-    color: var(--btn-color-hover);
-    transform: scale(1.1);
+.nav-btn:hover {
+  background-color: var(--btn-color);
+  color: var(--btn-color-hover);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.highlight {
+  color: var(--btn-color);
+}
+
+.full-screen {
+  border: 1px solid var(--btn-color-light);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.content-section {
+  padding: 80px 20px;
+  min-height: 50vh;
+  border-bottom: 1px solid var(--primary-color);
 }
