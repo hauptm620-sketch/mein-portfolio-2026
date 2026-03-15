@@ -93,7 +93,7 @@ header {
 }
 
 .content-section {
-  padding: 100px 20px;
+  padding: 120px 20px;
   min-height: 50vh;
   border-bottom: 1px solid var(--primary-color);
 }
