@@ -1,3 +1,7 @@
+/* ==========================================================================
+   1. SETTINGS & VARIABLEN
+   (Farben, Schriften und globale Resets)
+   ========================================================================== */
 @font-face {
   font-family: "montserrat";
   src: url("fonts/static/Montserrat-Medium.ttf") format("truetype");
@@ -13,10 +17,11 @@
 }
 
 * {
-  font-family: "montserrat", sans-serif;
+  font-family:
+    "montserrat", sans-serif; /* Lokale Google Font für Performance & DSGVO */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Padding wird in die Breite eingerechnet (Layout-Sicherheit) */
   scroll-behavior: smooth;
 }
 
@@ -29,7 +34,10 @@
   --btn-color-hover: black;
   --card-bg: #272626;
 }
-
+/* ==========================================================================
+   2. LAYOUT-GRUNDGERÜST
+   (Body, Main-Container und Sektions-Abstände)
+   ========================================================================== */
 body {
   background-color: var(--primary-bg-color);
   color: var(--primary-color);
@@ -38,6 +46,35 @@ body {
   padding: 0 20px; /*abstand links/rechts ist gleichmäßig*/
 }
 
+.content-section {
+  padding: 120px 20px;
+  min-height: 50vh;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.full-screen {
+  border: 1px solid var(--btn-color-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  animation: einblenden 1s ease-out backwards;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ==========================================================================
+   3. NAVIGATION & HEADER
+   (Sticky-Header, Glassmorphism und Nav-Buttons)
+   ========================================================================== */
 header {
   position: sticky;
   top: 0;
@@ -85,36 +122,6 @@ header {
   color: var(--btn-color-hover);
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.full-screen {
-  border: 1px solid var(--btn-color-light);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  border-radius: 8px;
-  margin-top: 20px;
-  animation: einblenden 1s ease-out backwards;
-}
-
-@keyframes einblenden {
-  from {
-    opacity: 0;
-    transform: translateY(30px); /* Kommt leicht von unten */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0); /* Endet an der Originalposition */
-  }
-}
-
 .highlight {
   color: var(--btn-color);
 }
@@ -123,12 +130,16 @@ header {
   margin-bottom: 40px;
 }
 
-.content-section {
-  padding: 120px 20px;
-  min-height: 50vh;
-  border-bottom: 1px solid var(--primary-color);
+#typewriter {
+  border-right: 3px solid var(--btn-color);
+  padding-right: 5px;
+  animation: blink-cursor 0.8s step-end infinite;
 }
 
+/* ==========================================================================
+   4. PROJEKT-GRID & CARDS
+   (Responsive Grid-System und interaktive Projekt-Karten)
+   ========================================================================== */
 .projekt-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -161,7 +172,7 @@ header {
     0px 4px 9px rgba(32, 29, 29, 0.116),
     0px 6px 15px rgba(32, 29, 29, 0.103),
     0px 10px 24px rgba(32, 29, 29, 0.08);
-  position: relative;
+  position: relative; /* WICHTIG: position: relative wird für den Schatten benötigt */
   background-color: var(--card-bg);
   border-radius: 8px;
   padding: 24px;
@@ -206,6 +217,35 @@ footer {
   margin: 20px 0;
 }
 
+/* ==========================================================================
+   5. ANIMATIONEN
+   (Keyframes für Einblend-Effekte und Übergänge)
+   ========================================================================== */
+@keyframes einblenden {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Kommt leicht von unten */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Endet an der Originalposition */
+  }
+}
+
+@keyframes blink-cursor {
+  from,
+  to {
+    border-color: transparent;
+  } /* Am Anfang und Ende unsichtbar */
+  50% {
+    border-color: var(--btn-color);
+  } /* In der Mitte sichtbar */
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (MEDIA QUERIES)
+   (Anpassungen für Smartphones und Tablets)
+   ========================================================================== */
 @media (max-width: 600px) {
   .nav-btn {
     padding: 6px 16px;
