@@ -136,6 +136,22 @@ header {
   animation: blink-cursor 0.8s step-end infinite;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  padding: 5px 10px;
+  background-color: var(--btn-color);
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.visible {
+  opacity: 1;
+}
+
 /* ==========================================================================
    4. PROJEKT-GRID & CARDS
    (Responsive Grid-System und interaktive Projekt-Karten)
@@ -172,7 +188,7 @@ header {
     0px 4px 9px rgba(32, 29, 29, 0.116),
     0px 6px 15px rgba(32, 29, 29, 0.103),
     0px 10px 24px rgba(32, 29, 29, 0.08);
-  position: relative; /* WICHTIG: position: relative wird für den Schatten benötigt */
+  position: relative; /* WICHTIG: position relative wird für den Schatten benötigt */
   background-color: var(--card-bg);
   border-radius: 8px;
   padding: 24px;

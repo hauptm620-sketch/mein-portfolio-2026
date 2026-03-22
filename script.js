@@ -67,3 +67,22 @@ function type() {
 
 // Startschuss
 type();
+
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+ if(window.scrollY > 600) {
+    backToTopBtn.classList.add('visible');
+ } else {
+   backToTopBtn.classList.remove('visible');
+ }
+});
+
+// Wir sagen der Variable: "Pass auf. klickt jemand auf dich?"
+backToTopBtn.addEventListener('click', () => {
+  // Die Aktion: Scrolle zum Punkt 0 (ganz oben)
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Sorgt für das sanfte Gleiten statt eines harten Sprungs
+  });
+});
