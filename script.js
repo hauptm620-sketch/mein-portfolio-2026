@@ -21,3 +21,49 @@ function typeEffect() {
 
 // 3. Der Startschuss: Führe die Funktion aus, wenn die Seite geladen ist
 typeEffect();
+
+
+
+const typewriter = document.getElementById("typewriter");
+const phrases = ["Junior Web Developer", "Problemlöser", "da Miche"];
+let phraseIndex = 0; // Welches Wort aus dem Array?
+let charIndex = 0;   // Welcher Buchstabe vom Wort?
+let isDeleting = false; // Schreib- oder Löschmodus?
+
+function type() {
+  const currentFullText = phrases[phraseIndex];
+  
+  if (isDeleting) {
+    // --- LÜCKE 1: LÖSCHEN ---
+    // Nutze den "Baustein B" (.slice), um den Text um einen Buchstaben zu kürzen
+    typewriter.textContent = currentFullText.slice(0, charIndex - 1);
+    charIndex--;
+  } else {
+    // --- LÜCKE 2: SCHREIBEN ---
+    // Nimm den Text bis zum aktuellen charIndex + 1
+    typewriter.textContent = currentFullText.slice(0, charIndex + 1);
+    charIndex++;
+  }
+
+  // --- LOGIK-ZENTRALE: WANN MODUS WECHSELN? ---
+
+  // 1. Wort ist fertig geschrieben
+  if (!isDeleting && charIndex === currentFullText.length) {
+    isDeleting = true;
+    setTimeout(type, 2000); // Pause am Ende des Wortes (2 Sek.)
+    return; // Funktion hier kurz stoppen
+  } 
+  
+  // 2. Wort ist komplett gelöscht
+  else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length; // Gehe zum nächsten Wort (Modulo-Trick)
+  }
+
+  // Bestimme die Geschwindigkeit (Löschen geht meist schneller als Schreiben)
+  const timer = isDeleting ? 100 : 200;
+  setTimeout(type, timer);
+}
+
+// Startschuss
+type();
