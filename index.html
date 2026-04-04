@@ -10,6 +10,19 @@
   <body>
     <header>
       <nav class="navigation">
+        <ul class="sidebar">
+           <span onclick="hideSidebar()" class="sidebar-close">X</span>
+         <a
+          class="sidebar-btn"
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Profil</a
+        >
+        <a href="#projekte" class="sidebar-btn">Projekte</a>
+        <a href="#ueber-mich" class="sidebar-btn">Über mich</a>
+        </ul>
         <a
           class="nav-btn"
           href="https://github.com"
@@ -20,7 +33,13 @@
         >
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#ueber-mich" class="nav-btn">Über mich</a>
+      <div onclick="showSidebar()" id="mobile-menu" class="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       </nav>
+    
     </header>
     <main>
       <section id="home" class="full-screen">
@@ -67,20 +86,24 @@
           </article>
           <article class="project-card">
             <h3>Card-Title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              tempore atque enim, quaerat facilis fugiat quasi dignissimos a,
-              amet animi iure quis accusamus perspiciatis laboriosam rerum
-              dolorem. Iusto, quibusdam iure.
-            </p>
+         
+            <div id="stats-container">
+              <p id="dev-name"></p>
+              <p id="dev-age"></p>
+              <p id="dev-status"></p>
+              <p id="dev-skills"></p>
+            </div>
           </article>
           <article class="project-card">
             <h3>Card-Title</h3>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              tempore atque enim, quaerat facilis fugiat quasi dignissimos a,
-              amet animi iure quis accusamus perspiciatis laboriosam rerum
-              dolorem. Iusto, quibusdam iure.
+                <div class="level-box">
+              <p>
+                Dein aktuelles Programmier-Level:
+                <span id="level-display">1</span>
+              </p>
+              <button id="level-up-btn">Level Up! 🚀</button>
+            </div>
             </p>
           </article>
         </div>

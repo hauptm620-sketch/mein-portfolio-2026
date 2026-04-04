@@ -2,37 +2,17 @@
 const text = "Junior Web Developer";
 const targetElement = document.getElementById("typewriter");
 let index = 0; // Wir starten beim ersten Buchstaben (Position 0)
-const speed = 200; // Geschwindigkeit in Millisekunden (höher = langsamer)
-
-// 2. Die Funktion: Die "Maschine", die tippt
-function typeEffect() {
-  // Solange der aktuelle Index kleiner ist als die Länge des Textes...
-  if (index < text.length) {
-    // ...füge den aktuellen Buchstaben zum Element hinzu
-    targetElement.textContent += text.charAt(index);
-    
-    // Erhöhe den Index um 1, damit der nächste Buchstabe dran ist
-    index++;
-    
-    // Warte kurz (speed) und rufe DIESE Funktion dann wieder auf (Rekursion)
-    setTimeout(typeEffect, speed);
-  }
-}
-
-// 3. Der Startschuss: Führe die Funktion aus, wenn die Seite geladen ist
-typeEffect();
-
-
+const speed = 150; // Geschwindigkeit in Millisekunden (höher = langsamer)
 
 const typewriter = document.getElementById("typewriter");
 const phrases = ["Junior Web Developer", "Problemlöser", "da Miche"];
 let phraseIndex = 0; // Welches Wort aus dem Array?
-let charIndex = 0;   // Welcher Buchstabe vom Wort?
+let charIndex = 0; // Welcher Buchstabe vom Wort?
 let isDeleting = false; // Schreib- oder Löschmodus?
 
 function type() {
   const currentFullText = phrases[phraseIndex];
-  
+
   if (isDeleting) {
     // --- LÜCKE 1: LÖSCHEN ---
     // Nutze den "Baustein B" (.slice), um den Text um einen Buchstaben zu kürzen
@@ -52,8 +32,8 @@ function type() {
     isDeleting = true;
     setTimeout(type, 2000); // Pause am Ende des Wortes (2 Sek.)
     return; // Funktion hier kurz stoppen
-  } 
-  
+  }
+
   // 2. Wort ist komplett gelöscht
   else if (isDeleting && charIndex === 0) {
     isDeleting = false;
@@ -68,21 +48,68 @@ function type() {
 // Startschuss
 type();
 
-const backToTopBtn = document.getElementById('backToTop');
+// lässt die Sidebar anzeigen
+function showSidebar() {
+  const showSidebar = document.querySelector(".sidebar")
+  showSidebar.style.display = "flex";
+}
 
-window.addEventListener('scroll', () => {
- if(window.scrollY > 600) {
-    backToTopBtn.classList.add('visible');
- } else {
-   backToTopBtn.classList.remove('visible');
- }
+// lässt die Sidebar wieder verschwinden
+function hideSidebar() {
+   const showSidebar = document.querySelector(".sidebar")
+  showSidebar.style.display = "none";
+}
+
+
+
+
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 600) {
+    backToTopBtn.classList.add("visible");
+  } else {
+    backToTopBtn.classList.remove("visible");
+  }
 });
 
 // Wir sagen der Variable: "Pass auf. klickt jemand auf dich?"
-backToTopBtn.addEventListener('click', () => {
+backToTopBtn.addEventListener("click", () => {
   // Die Aktion: Scrolle zum Punkt 0 (ganz oben)
   window.scrollTo({
     top: 0,
-    behavior: 'smooth' // Sorgt für das sanfte Gleiten statt eines harten Sprungs
+    behavior: "smooth", // Sorgt für das sanfte Gleiten statt eines harten Sprungs
   });
 });
+
+const name = "da Miche";
+let experienceInWeeks = 8;
+const isLearningJs = true;
+const skills = ["HTML", "CSS", "JavaScript", "Logik"];
+
+document.getElementById("dev-name").innerText = "Entwickler: " + name;
+document.getElementById("dev-age").innerText =
+  "Erfahrung: " + experienceInWeeks + " Wochen";
+document.getElementById("dev-status").innerText =
+  "Lerne ich gerade? " + (isLearningJs ? "Ja, voll dabei" : "Pause");
+document.getElementById("dev-skills").innerText =
+  "Skills: " + skills.join(", ");
+
+let myLevel = 1;
+const levelButton = document.getElementById("level-up-btn");
+const levelDisplay = document.getElementById("level-display");
+
+levelButton.addEventListener("click", () => {
+  myLevel++;
+  levelDisplay.innerText = myLevel;
+  if (myLevel >= 20) {
+    levelDisplay.style.color = "#b90707";
+    levelButton.innerText = "EXPERT LEVEL! 🔥";
+  } else if (myLevel >= 10) {
+    levelDisplay.style.color = "#dac407";
+    levelButton.innerText = "PRO LEVEL! 🔥";
+  }
+  console.log("Neues Level erreicht " + myLevel);
+});
+
+
