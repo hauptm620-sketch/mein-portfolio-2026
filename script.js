@@ -48,17 +48,25 @@ function type() {
 // Startschuss
 type();
 
+
+const sidebar = document.querySelector(".sidebar")
 // lässt die Sidebar anzeigen
 function showSidebar() {
-  const showSidebar = document.querySelector(".sidebar")
-  showSidebar.style.display = "flex";
+  sidebar.classList.add("active");
 }
 
 // lässt die Sidebar wieder verschwinden
 function hideSidebar() {
-   const showSidebar = document.querySelector(".sidebar")
-  showSidebar.style.display = "none";
+   sidebar.classList.remove("active");
 }
+
+// 1. Alle Links in der Sidebar finden
+const sidebarLinks = document.querySelectorAll('.sidebar-btn');
+
+// 2. Für jeden Link sagen: "Wenn du geklickt wirst, führe hideSidebar aus"
+sidebarLinks.forEach((link) => {
+  link.addEventListener('click', hideSidebar);
+});
 
 
 
