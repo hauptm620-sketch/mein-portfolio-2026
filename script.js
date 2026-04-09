@@ -1,8 +1,3 @@
-// 1. Die Konfiguration: Was soll getippt werden?
-const text = "Junior Web Developer";
-const targetElement = document.getElementById("typewriter");
-let index = 0; // Wir starten beim ersten Buchstaben (Position 0)
-const speed = 150; // Geschwindigkeit in Millisekunden (höher = langsamer)
 
 const typewriter = document.getElementById("typewriter");
 const phrases = ["Junior Web Developer", "Problemlöser", "da Miche"];

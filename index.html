@@ -10,7 +10,6 @@
   <body>
     <header>
       <nav class="navigation">
-       
         <a
           class="nav-btn"
           href="https://github.com"
@@ -27,8 +26,20 @@
         <span class="bar"></span>
       </div>
       </nav>
-    
     </header>
+     <ul class="sidebar">
+           <span onclick="hideSidebar()" class="sidebar-close">X</span>
+         <a
+          class="sidebar-btn"
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub Profil</a
+        >
+        <a href="#projekte" class="sidebar-btn">Projekte</a>
+        <a href="#ueber-mich" class="sidebar-btn">Über mich</a>
+     </ul>
     <main>
       <section id="home" class="full-screen">
         <h1 id="typewriter"><!--Junior Web Developer--></h1>
@@ -62,7 +73,7 @@
           <article class="project-card">
             <h3>Mein Portfolio</h3>
             <p>
-              Mein erstes größere Projekt sind diese Cards. Folgende Tags habe
+              Mein erstes größeres Projekt sind diese Cards. Folgende Tags habe
               ich genutzt:
             </p>
             <div class="tag-container">
@@ -99,18 +110,5 @@
     </main>
     <footer>(c) Erstellt vom Miche</footer>
     <button id="backToTop" class="back-to-top">↑</button>
-     <ul class="sidebar">
-           <span onclick="hideSidebar()" class="sidebar-close">X</span>
-         <a
-          class="sidebar-btn"
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub Profil</a
-        >
-        <a href="#projekte" class="sidebar-btn">Projekte</a>
-        <a href="#ueber-mich" class="sidebar-btn">Über mich</a>
-        </ul>
   </body>
 </html>
