@@ -98,21 +98,41 @@ document.getElementById("dev-status").innerText =
 document.getElementById("dev-skills").innerText =
   "Skills: " + skills.join(", ");
 
-let myLevel = 1;
+let myLevel = 0;
+const maximalLevel = 20;
 const levelButton = document.getElementById("level-up-btn");
 const levelDisplay = document.getElementById("level-display");
+const progressBar = document.getElementById("progress-bar");
 
 levelButton.addEventListener("click", () => {
-  myLevel++;
-  levelDisplay.innerText = myLevel;
-  if (myLevel >= 20) {
+
+   if (myLevel < 20) {
+    myLevel++;
+   }
+   updateUi();
+});
+
+function updateUi() {
+
+   let prozent = (myLevel / maximalLevel) * 100;
+   progressBar.style.width = prozent + "%";
+   levelDisplay.innerText = myLevel;
+
+   if (myLevel >= 20) {
     levelDisplay.style.color = "#b90707";
     levelButton.innerText = "EXPERT LEVEL! 🔥";
+    levelButton.style.backgroundColor = "#b90707";
+    progressBar.style.backgroundColor = "#b90707";
+    levelButton.disabled = true;
+
   } else if (myLevel >= 10) {
     levelDisplay.style.color = "#dac407";
     levelButton.innerText = "PRO LEVEL! 🔥";
+    levelButton.style.backgroundColor = "#dac407";
+    progressBar.style.backgroundColor = "#dac407";
   }
   console.log("Neues Level erreicht " + myLevel);
-});
+};
 
+updateUi();
 
