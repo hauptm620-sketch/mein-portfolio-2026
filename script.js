@@ -101,6 +101,7 @@ document.getElementById("dev-skills").innerText =
 let myLevel = 0;
 const maximalLevel = 20;
 const levelButton = document.getElementById("level-up-btn");
+const resetButton = document.getElementById("reset-level-btn");
 const levelDisplay = document.getElementById("level-display");
 const progressBar = document.getElementById("progress-bar");
 
@@ -111,6 +112,12 @@ levelButton.addEventListener("click", () => {
    }
    updateUi();
 });
+
+resetButton.addEventListener("click", () => {
+  myLevel = 0;
+  updateUi();
+});
+
 
 function updateUi() {
 
@@ -130,6 +137,13 @@ function updateUi() {
     levelButton.innerText = "PRO LEVEL! 🔥";
     levelButton.style.backgroundColor = "#dac407";
     progressBar.style.backgroundColor = "#dac407";
+  } 
+  else {
+    levelDisplay.style.color = "";
+    levelButton.innerText = "Level Up! 🚀";
+    levelButton.style.backgroundColor = "";
+    progressBar.style.backgroundColor = "";
+    levelButton.disabled = false;
   }
   console.log("Neues Level erreicht " + myLevel);
 };
