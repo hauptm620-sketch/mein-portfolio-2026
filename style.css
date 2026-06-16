@@ -34,6 +34,14 @@
   --btn-color-hover: black;
   --card-bg: #272626;
 }
+
+body.light-mode {
+  --primary-bg-color: #f5f5f5; /* Ein heller Hintergrund */
+  --primary-color: #222222;    /* Dunkler Text für guten Kontrast */
+  --card-bg: #ffffff;          /* Weiße Projekt-Karten */
+  /* Die Orange-Töne der Buttons kannst du so lassen, die passen auch auf Hell! */
+}
+
 /* ==========================================================================
    2. LAYOUT-GRUNDGERÜST
    (Body, Main-Container und Sektions-Abstände)
@@ -104,6 +112,8 @@ header {
   margin-top: 20px;
 }
 
+
+
 .nav-btn {
   text-decoration: none;
   color: var(--btn-text-color);
@@ -113,7 +123,8 @@ header {
   transition: all 0.4s ease;
 }
 
-.nav-btn:active {
+
+.nav-btn :active {
   transform: scale(0.94);
 }
 
