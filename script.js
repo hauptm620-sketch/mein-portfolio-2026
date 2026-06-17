@@ -154,5 +154,13 @@ const lightMode = document.getElementById("theme-toggle");
 
 lightMode.addEventListener("click", () => {
   document.body.classList.toggle("light-mode");
+if (document.body.classList.contains("light-mode")) {
+    lightMode.innerText = "Helles Design ☀️";
+} else {
+    lightMode.innerText = "Dunkles Design 🌙";
+}
+
 });
+
+
 
