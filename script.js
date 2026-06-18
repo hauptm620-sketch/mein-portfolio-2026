@@ -151,16 +151,23 @@ function updateUi() {
 updateUi();
 
 const lightMode = document.getElementById("theme-toggle");
+const lightModeMobile = document.getElementById("theme-toggle-mobile");
 
-lightMode.addEventListener("click", () => {
+function toggleTheme() {
   document.body.classList.toggle("light-mode");
 if (document.body.classList.contains("light-mode")) {
     lightMode.innerText = "Helles Design ☀️";
+    lightModeMobile.innerText = "Helles Design ☀️";
 } else {
     lightMode.innerText = "Dunkles Design 🌙";
+    lightModeMobile.innerText = "Dunkles Design 🌙";
 }
+};
 
-});
+  lightMode.addEventListener('click', toggleTheme);
+  lightModeMobile.addEventListener('click', toggleTheme);
+
+
 
 
 
