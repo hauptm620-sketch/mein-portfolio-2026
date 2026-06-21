@@ -98,7 +98,8 @@ document.getElementById("dev-status").innerText =
 document.getElementById("dev-skills").innerText =
   "Skills: " + skills.join(", ");
 
-let myLevel = 0;
+let gespeichertesLevel = localStorage.getItem("userLevel");
+let myLevel = parseInt(gespeichertesLevel) || 0;
 const maximalLevel = 20;
 const levelButton = document.getElementById("level-up-btn");
 const resetButton = document.getElementById("reset-level-btn");
@@ -109,12 +110,14 @@ levelButton.addEventListener("click", () => {
 
    if (myLevel < 20) {
     myLevel++;
+    localStorage.setItem("userLevel", myLevel);
    }
    updateUi();
 });
 
 resetButton.addEventListener("click", () => {
   myLevel = 0;
+  localStorage.setItem("userLevel", myLevel);
   updateUi();
 });
 

@@ -345,7 +345,7 @@ footer {
 #level-up-btn:hover {
   background-color: var(--btn-color);
   transform: scale(1.05);
-  color: var(--btn-text-color);
+  color: var(--btn-color-hover);
 }
 
 #level-up-btn:active {
@@ -369,7 +369,7 @@ footer {
 #reset-level-btn:hover {
   background-color: var(--btn-color);
   transform: scale(1.05);
-  color: var(--btn-text-color);
+  color: var(--btn-color-hover);
 }
 
 #reset-level-btn:active {
