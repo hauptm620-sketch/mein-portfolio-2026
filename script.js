@@ -179,6 +179,25 @@ if (document.body.classList.contains("light-mode")) {
   lightModeMobile.addEventListener('click', toggleTheme);
 
 
+  const kontaktForm = document.getElementById("kontakt-form");
+
+kontaktForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // Stoppt das Neuladen der Seite
+  const nameWert = document.getElementById("form-name").value;
+  const emailWert = document.getElementById("form-email").value;
+  const nachrichtWert = document.getElementById("form-nachricht").value;
+  console.log("Formular abgeschickt von: " + nameWert + " (" + emailWert + ")");
+console.log("Nachricht: " + nachrichtWert);
+
+// 1. Hole das leere Feedback-Element und schreibe Text hinein
+const feedbackElement = document.getElementById("form-feedback");
+feedbackElement.innerText = "Danke " + nameWert + ", deine Nachricht wurde erfolgreich (simuliert) gesendet! 🚀";
+
+// 2. Das Formular wieder komplett leeren
+// 💡 Tipp: Die bequemste Art, ein ganzes Formular zurückzusetzen, ist der Befehl .reset() auf dem Formular-Element!
+kontaktForm.reset();
+
+});
 
 
 

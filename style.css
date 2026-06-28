@@ -411,10 +411,67 @@ button:disabled {
   pointer-events: none;     
 }
 
+/* ==========================================================================
+   5. Kontaktformular
+   ========================================================================== */
+
+/* Das Formular als Spalte ausrichten */
+#kontakt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;            /* Abstand zwischen den Feldern */
+  max-width: 500px;     /* Verhindert, dass das Formular zu breit wird */
+  margin: 30px auto 0 auto; /* Zentriert das Formular in der Sektion */
+}
+
+/* Eingabefelder und Textarea stylen */
+#kontakt-form input,
+#kontakt-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: var(--card-bg); /* Nutzt dieselbe Hintergrundfarbe wie die Cards! */
+  color: var(--primary-color);     /* Nutzt die globale Textfarbe */
+  border: 1px solid var(--btn-color-light);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Spezial-Effekt: Wenn der User in ein Feld klickt (Focus) */
+#kontakt-form input:focus,
+#kontakt-form textarea:focus {
+  outline: none;                    /* Entfernt den Standard-Rahmen des Browsers */
+  border-color: var(--btn-color);   /* Färbt den Rahmen in deinem Orange ein */
+}
+
+/* Den Absende-Button zentrieren oder linksbündig ausrichten */
+#form-submit-btn {
+  align-self: center;
+  cursor: pointer;
+  
+  /* 🎨 Hier holen wir uns das tolle Design zurück: */
+  background-color: var(--btn-color-light);
+  color: var(--btn-text-color);
+  border: 1px solid var(--btn-color);
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+/* Auch die Hover- und Active-Effekte aktivieren wir für diese ID: */
+#form-submit-btn:hover {
+  background-color: var(--btn-color);
+  color: var(--btn-color-hover);
+}
+
+#form-submit-btn:active {
+  transform: scale(0.94);
+}
+
 
 
 /* ==========================================================================
-   5. ANIMATIONEN
+   6. ANIMATIONEN
    (Keyframes für Einblend-Effekte und Übergänge)
    ========================================================================== */
 @keyframes einblenden {
@@ -456,13 +513,11 @@ button:disabled {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE DESIGN (MEDIA QUERIES)
+   7. RESPONSIVE DESIGN (MEDIA QUERIES)
    (Anpassungen für Smartphones und Tablets)
    ========================================================================== */
 @media (max-width: 768px) {
   .nav-btn {
-    /*padding: 6px 16px;
-    font-size: 12px;*/
     display: none;
   }
 
