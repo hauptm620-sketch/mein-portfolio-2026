@@ -85,18 +85,24 @@ backToTopBtn.addEventListener("click", () => {
   });
 });
 
-const name = "da Miche";
+/*const name = "da Miche";
 let experienceInWeeks = 8;
 const isLearningJs = true;
-const skills = ["HTML", "CSS", "JavaScript", "Logik"];
+const skills = ["HTML", "CSS", "JavaScript", "Logik"];*/
+const developer = {
+  name: "da Miche",
+  experienceInWeeks: 8,
+  isLearningJs: true,
+  skills: ["HTML", "CSS", "JavaScript", "Logik"]
+};
 
-document.getElementById("dev-name").innerText = "Entwickler: " + name;
+document.getElementById("dev-name").innerText = "Entwickler: " + developer.name;
 document.getElementById("dev-age").innerText =
-  "Erfahrung: " + experienceInWeeks + " Wochen";
+  "Erfahrung: " + developer.experienceInWeeks + " Wochen";
 document.getElementById("dev-status").innerText =
-  "Lerne ich gerade? " + (isLearningJs ? "Ja, voll dabei" : "Pause");
+  "Lerne ich gerade? " + (developer.isLearningJs ? "Ja, voll dabei" : "Pause");
 document.getElementById("dev-skills").innerText =
-  "Skills: " + skills.join(", ");
+  "Skills: " + developer.skills.join(", ");
 
 let gespeichertesLevel = localStorage.getItem("userLevel");
 let myLevel = parseInt(gespeichertesLevel) || 0;
@@ -136,12 +142,14 @@ function updateUi() {
     levelButton.disabled = true;
 
   } else if (myLevel >= 10) {
-    levelDisplay.style.color = "#dac407";
+    levelDisplay.style.color = "#dac407";/*#dac407*/
     levelButton.innerText = "PRO LEVEL! 🔥";
     levelButton.style.backgroundColor = "#dac407";
+    levelButton.style.color = "#070707";
     progressBar.style.backgroundColor = "#dac407";
   } 
   else {
+    levelButton.style.color = "";
     levelDisplay.style.color = "";
     levelButton.innerText = "Level Up! 🚀";
     levelButton.style.backgroundColor = "";

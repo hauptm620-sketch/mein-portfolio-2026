@@ -20,12 +20,13 @@
         >
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#ueber-mich" class="nav-btn">Über mich</a>
+        <a href="#kontakt" class="nav-btn">Kontakt</a> 
       <div onclick="showSidebar()" id="mobile-menu" class="menu-toggle">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-      <button id="theme-toggle" class="nav-btn">Helles Design ☀️</button>
+      <button id="theme-toggle" class="nav-btn">Dunkles Design 🌙</button>
       </nav>
     </header>
      <ul class="sidebar">
@@ -40,6 +41,7 @@
         >
         <a href="#projekte" class="sidebar-btn">Projekte</a>
         <a href="#ueber-mich" class="sidebar-btn">Über mich</a>
+        <a href="#kontakt" class="sidebar-btn">Kontakt</a>
         <button id="theme-toggle-mobile" class="sidebar-btn">Helles Design ☀️</button>
      </ul>
     <main>
@@ -86,7 +88,7 @@
             </div>
           </article>
           <article class="project-card">
-            <h3>Card-Title</h3>
+            <h3>Entwickler-Status</h3>
          
             <div id="stats-container">
               <p id="dev-name"></p>
@@ -96,7 +98,7 @@
             </div>
           </article>
           <article class="project-card">
-            <h3>Card-Title</h3>
+            <h3>Programmier-Level</h3>
             <p>
                 <div class="level-box" >
               <p>
@@ -108,11 +110,20 @@
               </div>
               
               <button id="level-up-btn" class="level">Level Up! 🚀</button>
-              <button id="reset-level-btn">Reset 🔄</button>
+              <button id="reset-level-btn">Reset</button>
             </div>
             </p>
           </article>
         </div>
+      </section>
+      <section id="kontakt" class="content-section">
+        <h2><span class="highlight">Schreib mir!</span></h2>
+        <form id="kontakt-from">
+          <input type="text" id="form-name" placeholder="Dein Name" required />
+          <input type="email" id="form-email" placeholder="Deine E-Mail Adresse" required />
+          <textarea id="form-nachricht" placeholder="Deine Nachricht an mich..." rows="5" required></textarea>
+          <button type="submit" id="form-submit-btn" class="nav-btn">Nachricht senden ✉️</button>
+        </form>
       </section>
     </main>
     <footer>(c) Erstellt vom Miche</footer>
