@@ -179,6 +179,10 @@ if (document.body.classList.contains("light-mode")) {
   lightModeMobile.addEventListener('click', toggleTheme);
 
 
+/* ==========================================================================
+   Kontaktformular | Zeile 186-204
+   ========================================================================== */
+
   const kontaktForm = document.getElementById("kontakt-form");
 
 kontaktForm.addEventListener("submit", (e) => {
@@ -199,5 +203,46 @@ kontaktForm.reset();
 
 });
 
+/* ==========================================================================
+   Meine Projekte | Zeile 210-
+   ========================================================================== */
 
+   const meineProjekte = [
+    {
+    titel: "Mein Portfolio",
+    beschreibung: "Mein erstes größeres Projekt. Komplett responsive und mit automatischem Lightmode.",
+    tags: ["HTML", "CSS", "Grid", "Flexbox"]
+    },
+    {
+    titel: "Das Kontaktformular",
+    beschreibung: "Ein interaktives Formular mit Live-Feedback für den Nutzer und Absperr-Schutz.",
+    tags: ["HTML", "CSS", "JavaScript", "Validierung"]
+  }
+   ];
+
+   // 1. Hol dir das leere Grid aus dem HTML
+const projektGrid = document.getElementById("projekt-grid");
+
+// 2. Wir gehen jedes Projekt in der Liste nacheinander durch
+meineProjekte.forEach((projekt) => {
+
+  // 💡 TRICK: Wir bauen die Tags (HTML-Spans) dynamisch aus dem Tags-Array des Projekts!
+  // .map erstellt für jeden Tag ein <span> und .join("") klebt sie zu einem Text zusammen.
+  const tagSpans = projekt.tags.map(tag => `<span>${tag}</span>`).join("");
+
+  // 3. Wir erschaffen das HTML-Skelett für die Card als Text (mit Backticks `` ` ``)
+  const cardHtml = `
+    <article class="project-card">
+      <h3>${projekt.titel}</h3>
+      <p>${projekt.beschreibung}</p>
+      <div class="tag-container">
+        ${tagSpans}
+      </div>
+    </article>
+  `;
+
+  // 4. Jetzt schieben wir diese fertige Card ganz vorne in das Grid hinein
+  // 'afterbegin' sorgt dafür, dass sie vor deiner bestehenden Level-Card eingefügt wird!
+  projektGrid.insertAdjacentHTML("afterbegin", cardHtml);
+});
 
